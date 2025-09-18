@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.infinite.jsf.admin.model.User" table="Admin_User">
+		<id name="userId" column="user_id">
+			<generator class="native" />
+		</id>
+
+		<property name="firstName" column="first_name" type="string" />
+		<property name="lastName" column="last_name" type="string" />
+		<property name="username" column="user_name" type="string"
+			unique="true" />
+		<property name="password" column="password" type="string" />
+		<property name="email" column="email" type="string"
+			unique="true" />
+
+		<property name="createdAt" column="created_at"
+			type="timestamp" insert="false" update="false" />
+		<property name="updatedAt" column="updated_at"
+			type="timestamp" insert="false" update="false" />
+
+
+		<!-- One-to-many mapping to Otp -->
+		<set name="otp" inverse="true" cascade="all" lazy="true">
+			<key column="email" />
+			<one-to-many class="com.infinite.jsf.admin.model.Otp" />
+		</set>
+
+		<!-- One-to-many to PasswordHistory -->
+		<set name="passwordHistory" cascade="all" inverse="true"
+			lazy="true">
+			<key column="user_id" />
+			<one-to-many
+				class="com.infinite.jsf.admin.model.PasswordHistory" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.infinite.jsf.insurance.model.MemberPlanRule"
+		table="member_plan_rule">
+		<id name="meberId" column="member_id" type="string">
+			<generator class="assigned" />
+		</id>
+		<property name="gender">
+			<column name="gender" not-null="true" />
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.infinite.jsf.insurance.model.Gender</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		<property name="relation">
+			<column name="relation" not-null="true" />
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.infinite.jsf.insurance.model.Relation</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		<many-to-one name="insurancePlan" column="plan_id"
+			class="com.infinite.jsf.insurance.model.InsurancePlan"
+			not-null="true" fetch="join" lazy="false" />
+	</class>
+</hibernate-mapping>

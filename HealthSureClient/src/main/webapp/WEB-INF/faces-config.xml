@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                                  http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0" metadata-complete="false">
+
+	<!-- ✅ Managed Bean: User -->
+	<managed-bean>
+		<managed-bean-name>user</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.model.User</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>loginUser</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.model.User</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ✅ Managed Bean: Admin Controller -->
+	<managed-bean>
+		<managed-bean-name>adminController</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.controller.AdminController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+		<!-- ✅ Inject user bean into controller -->
+		<managed-property>
+			<property-name>user</property-name>
+			<property-class>com.infinite.jsf.admin.model.User</property-class>
+			<value>#{user}</value> 
+		</managed-property>
+		<managed-property>
+			<property-name>loginUser</property-name>
+			<property-class>com.infinite.jsf.admin.model.User</property-class>
+			<value>#{loginUser}</value>
+		</managed-property>
+	</managed-bean>
+
+
+
+	<!-- ✅ Managed Bean: IShani -->
+	<managed-bean>
+		<managed-bean-name>doctorDao</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.daoImpl.DoctorDaoImpl</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>  <!-- Changed to session scope -->
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>doctor</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.provider.model.Doctors</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>  <!-- Changed to session scope -->
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>provider</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.provider.model.Provider</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>  <!-- Changed to session scope -->
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>doctorController</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.controller.DoctorController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>  <!-- doctorController stays session -->
+		<managed-property>
+			<property-name>doctorDao</property-name>
+			<property-class>com.infinite.jsf.admin.daoImpl.DoctorDaoImpl</property-class>
+			<value>#{doctorDao}</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>provider</property-name>
+			<property-class>com.infinite.jsf.provider.model.Provider</property-class>
+			<value>#{provider}</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>doctor</property-name>
+			<property-class>com.infinite.jsf.provider.model.Doctors</property-class>
+			<value>#{doctor}</value>
+		</managed-property>
+
+	</managed-bean>
+
+
+	<!-- Managed Bean: Usha -->
+	<!-- RecipientDao Bean -->
+	<managed-bean>
+		<managed-bean-name>recipientDao</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.daoImpl.RecipientDaoImpl</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>recipientController</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.controller.RecipientController</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>recipientDao</property-name>
+			<property-class>com.infinite.jsf.admin.dao.RecipientDao</property-class>
+			<value>#{recipientDao}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>recipient</property-name>
+			<property-class>com.infinite.jsf.recipient.model.Recipient</property-class>
+			<value>#{recipient}</value>
+		</managed-property>
+	</managed-bean>
+
+
+
+
+
+	<!-- Managed Bean: Ravikant -->
+
+	<!-- InsurancePlan model -->
+	<managed-bean>
+		<managed-bean-name>insurancePlan</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.InsurancePlan</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- InsuranceCoverageOption models -->
+	<managed-bean>
+		<managed-bean-name>coverageOption</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.InsuranceCoverageOption</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>coverageOption1</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.InsuranceCoverageOption</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>coverageOption2</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.InsuranceCoverageOption</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>coverageOption3</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.InsuranceCoverageOption</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- Member model -->
+	<managed-bean>
+		<managed-bean-name>memberPlanRule</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.MemberPlanRule</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- insuranceCompany model -->
+	<managed-bean>
+		<managed-bean-name>insuranceCompany</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.model.InsuranceCompany</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ===================== DAO Beans ===================== -->
+	<!-- InsurancePlan DAO -->
+	<managed-bean>
+		<managed-bean-name>insurancplanDao</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.daoImpl.InsurancePlanDaoImpl</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- InsuranceCoverageOption DAO -->
+	<managed-bean>
+		<managed-bean-name>insuranceCoverageOptionDao</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.daoImpl.InsuranceCoverageOptionDaoImpl</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- Member DAO -->
+	<managed-bean>
+		<managed-bean-name>memberPlanRuleDao</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.daoImpl.MemberPlanRuleDaoImpl</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ===================== Controller Beans ===================== -->
+	<!-- CreateInsuranceController -->
+	<managed-bean>
+		<managed-bean-name>createInsuranceController</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.insurance.controller.CreateInsuranceController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<!-- Inject dependencies -->
+		<managed-property>
+			<property-name>insuranceCompany</property-name>
+			<value>#{insuranceCompany}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>insurancePlan</property-name>
+			<value>#{insurancePlan}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>coverageOption</property-name>
+			<value>#{coverageOption}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>coverageOption1</property-name>
+			<value>#{coverageOption1}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>coverageOption2</property-name>
+			<value>#{coverageOption2}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>coverageOption3</property-name>
+			<value>#{coverageOption3}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>memberPlanRule</property-name>
+			<value>#{memberPlanRule}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>insuranceCoverageOptionDao</property-name>
+			<value>#{insuranceCoverageOptionDao}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>insurancplanDao</property-name>
+			<value>#{insurancplanDao}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>memberPlanRuleDao</property-name>
+			<value>#{memberPlanRuleDao}</value>
+		</managed-property>
+	</managed-bean>
+
+
+	<!-- ✅ Managed Bean: Ravikant (Pharmacy) -->
+
+
+	<!-- 📦 Pharmacy Model Bean -->
+	<managed-bean>
+		<managed-bean-name>pharmacy</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.Pharmacy</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- 💊 Medicines Model Bean -->
+	<managed-bean>
+		<managed-bean-name>medicines</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.Medicines</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ⚙️ Equipment Model Bean -->
+	<managed-bean>
+		<managed-bean-name>equipment</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.Equipment</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- 👨‍⚕️ Pharmacists Model Bean -->
+	<managed-bean>
+		<managed-bean-name>pharmacists</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.Pharmacists</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- 💊 Dispensed Medicines Model Bean -->
+	<managed-bean>
+		<managed-bean-name>dispensedMedicines</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.DispensedMedicines</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ⚙️ Dispensed Equipments Model Bean -->
+	<managed-bean>
+		<managed-bean-name>dispensedEquipments</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.DispensedEquipments</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- 🔐 Passwords Model Bean -->
+	<managed-bean>
+		<managed-bean-name>passwords</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.pharmacy.model.Passwords</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ============================= -->
+	<!-- 💾 DAO BEAN DECLARATION -->
+	<!-- ============================= -->
+	<!-- 📂 Review Pharmacy DAO Bean -->
+	<managed-bean>
+		<managed-bean-name>reviewPharmacyaDao</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.daoImpl.ReviewPharmacyaDaoImpl</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- ============================= -->
+	<!-- 🎮 CONTROLLER BEAN -->
+	<!-- ============================= -->
+	<!-- 🎯 Review Pharmacy Controller Bean -->
+	<managed-bean>
+		<managed-bean-name>reviewPharmacyController</managed-bean-name>
+		<managed-bean-class>com.infinite.jsf.admin.controller.ReviewPharmacyController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<!-- Inject DAO -->
+		<managed-property>
+			<property-name>reviewPharmacyaDao</property-name>
+			<value>#{reviewPharmacyaDao}</value>
+		</managed-property>
+		<!-- Inject All Model Beans -->
+		<managed-property>
+			<property-name>pharmacy</property-name>
+			<value>#{pharmacy}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>medicines</property-name>
+			<value>#{medicines}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>equipment</property-name>
+			<value>#{equipment}</value>
+		</managed-property>
+
+		<managed-property>
+			<property-name>dispensedMedicines</property-name>
+			<value>#{dispensedMedicines}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>dispensedEquipments</property-name>
+			<value>#{dispensedEquipments}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>passwords</property-name>
+			<value>#{passwords}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>pharmacists</property-name>
+			<value>#{pharmacists}</value>
+		</managed-property>
+	</managed-bean>
+
+</faces-config>

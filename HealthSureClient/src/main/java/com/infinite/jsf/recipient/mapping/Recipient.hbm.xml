@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.infinite.jsf.recipient.model.Recipient" table="Recipient">
+
+        <id name="hId" type="java.lang.String">
+            <column name="h_id" />
+            <generator class="assigned"/>
+        </id>
+
+        <property name="firstName" type="java.lang.String">
+            <column name="first_name"/>
+        </property>
+
+        <property name="lastName" type="java.lang.String">
+            <column name="last_name"/>
+        </property>
+
+        <property name="mobile" type="java.lang.String">
+            <column name="mobile"/>
+        </property>
+
+        <property name="userName" type="java.lang.String">
+            <column name="user_name"/>
+        </property>
+
+        <property name="gender">
+            <column name="gender"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.infinite.jsf.recipient.model.Gender</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <property name="dob" type="java.sql.Date">
+            <column name="dob"/>
+        </property>
+
+        <property name="address" type="java.lang.String">
+            <column name="address"/>
+        </property>
+
+        <property name="createdAt" type="timestamp">
+            <column name="created_at"/>
+        </property>
+        
+         <property name="lastModifiedAt" type="timestamp">
+            <column name="last_modified_at"/>
+        </property>
+
+        <property name="password" type="java.lang.String">
+            <column name="password"/>
+        </property>
+
+        <property name="email" type="java.lang.String">
+            <column name="email"/>
+        </property>
+
+        <property name="status">
+            <column name="status"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.infinite.jsf.recipient.model.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <property name="loginAttempts" type="int">
+            <column name="login_attempts"/>
+        </property>
+
+        <property name="lockedUntil" type="timestamp">
+            <column name="locked_until"/>
+        </property>
+
+        <property name="lastLogin" type="timestamp">
+            <column name="last_login"/>
+        </property>
+
+        <property name="passwordUpdatedAt" type="timestamp">
+            <column name="password_updated_at"/>
+        </property>
+
+    </class>
+
+    <!-- Named Queries -->
+
+    <!-- Inquiry (All) -->
+    <query name="showAllRecipients">
+        FROM Recipient
+    </query>
+
+    <!-- Search by hId -->
+    <query name="searchByHid">
+		from Recipient where hId = :hId
+    </query>
+
+    <!-- Search by mobile -->
+    <query name="searchByMobile">
+        FROM Recipient WHERE mobile LIKE :mobile
+    </query>
+
+    <!-- Search by createdAt (exact match) -->
+    <query name="searchByCreatedAt">
+        FROM Recipient WHERE createdAt LIKE :createdAt
+    </query>
+
+</hibernate-mapping>
+
